@@ -1,0 +1,2 @@
+# Tri-intelligent-
+Projet IA 
