@@ -32,18 +32,50 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet" />
   </head>
-  <body>
-    <h1>Le Tri intelligent</h1>
-    <form action="/record" method="post" onsubmit="submitForm(event)"> <!-- onsubmit intercept la soumission et la redirige vers submitForm -->
-	  <label for="lname">nom:</label><br>
-      <input type="text" name="texte" >
-	  <label for="lname">nombre:</label><br>
-      <input type="number" name="start_time" placeholder="Enter the number" step="0.1">
-    </form>
-    <img src="{{ url_for('static', path='images/poubelle.jpg') }}" class="poubelle" alt="Poubelle intelligente">
-    
-    <a href="/webcam" class="mon-bouton">
-          Tri
+
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <img src="{{ url_for('static', path='images/logo.jpg') }}" alt="Logo Smart Sort"> 
+        <span>CONSO SMART</span>
       </a>
-  </body>
+      <ul class="nav-links">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#comment-ca-marche">Comment ça Marche ?</a></li>
+        <li><a href="#temoignages">Témoignages</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <body>
+
+    <main class="hero-section">
+      <div class="hero-content">
+        <h1>Le Tri intelligent :<br>A vos marques? Prêt? Triez!</h1>
+        
+        <a href="/webcam" class="mon-bouton">
+          Tri
+        </a>
+      </div>
+    </main>
+
+    <section class="pillars-section">
+      
+      <div class="pillar-card">
+        <h3>Pilier 1 : Réduire</h3>
+        <p>Description du premier pilier du recyclage.</p>
+      </div>
+      
+      <div class="pillar-card">
+        <h3>Pilier 2 : Réutiliser</h3>
+        <p>Description du deuxième pilier du recyclage.</p>
+      </div>
+      
+      <div class="pillar-card">
+        <h3>Pilier 3 : Recycler</h3>
+        <p>Description du troisième pilier du recyclage.</p>
+      </div>
+
+    </section>
 </html>

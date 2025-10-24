@@ -1,48 +1,203 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  /* La couleur de fond générale est grise, la section "hero" aura l'image */
+  background-color: #f4f4f4; 
+}
+
+
+/* --- BARRE DE NAVIGATION (MODIFIÉE POUR TRANSPARENCE) --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  
+  /* Modifications pour la transparence */
+  background-color: rgba(255, 255, 255, 0.3); /* FOND TRANSPARENT */
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+
+  /* Positionnement au-dessus de tout */
+  position: absolute; /* Flotte au-dessus du contenu */
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box; /* Pour que le padding soit inclus dans les 100% */
+  z-index: 10; /* S'assure qu'elle est au-dessus */
+}
+
+/* --- LOGO (MODIFIÉ POUR LISIBILITÉ) --- */
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem; 
+  font-weight: bold;
+  text-decoration: none; 
+  
+  /* Couleur blanche pour être lisible sur l'image */
+  color: #ffffff; 
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Ombre pour lisibilité */
+}
+
+.logo img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+/* --- LIENS DE NAVIGATION (MODIFIÉS POUR LISIBILITÉ) --- */
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-left: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  
+  /* Couleur blanche pour être lisible sur l'image */
+  color: #ffffff; 
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Ombre pour lisibilité */
+}
+
+.nav-links a:hover {
+  color: #c0f0c0; /* Vert plus clair au survol */
+}
+
+
+/* --- NOUVEAU : SECTION "HERO" (PARTIE HAUTE AVEC IMAGE) --- */
+.hero-section {
+  /* Prend 50% de la hauteur de la fenêtre */
+  height: 50vh; 
+  
+  /* Image de fond */
+  background-image: url("/static/images/ap.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+
+  /* Positionnement du contenu (texte + bouton) */
+  display: flex;
+  justify-content: center; /* Centre horizontalement le conteneur */
+  align-items: center; /* Centre verticalement le conteneur */
+  padding: 0 5%; /* Marge sur les côtés */
+  box-sizing: border-box;
+  
+  /* Nécessaire pour le voile */
+  position: relative; 
+}
+
+/* Voile noir semi-transparent (ancien body::before) */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Voile noir */
+  z-index: 1; /* Derrière le contenu, devant l'image de fond */
+}
+
+/* Conteneur pour le texte à gauche et le bouton à droite */
+.hero-content {
+  display: flex;
+  justify-content: space-between; /* ÉLÉMENT CLÉ : gauche / droite */
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  
+  /* Positionné au-dessus du voile */
+  position: relative;
+  z-index: 2;
+}
+
+
+/* --- TITRE H1 (MODIFIÉ) --- */
 h1 {
-    font-size: 40px;
-    font-weight: bold;
-    text-align: center;
+  font-size: 2.5rem; /* 40px */
+  font-weight: bold;
+  text-align: left; /* Aligné à gauche */
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  margin: 0; /* Important */
 }
 
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+/* --- BOUTON DE TRI (MODIFIÉ) --- */
+.mon-bouton {
+  display: inline-block;
+  padding: 15px 30px; /* Un peu plus gros */
+  font-size: 1.2rem; /* Un peu plus gros */
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background-image: linear-gradient(to right, #007BFF, #00b3a7);
+  box-shadow: #333;
+  border: none;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+  white-space: nowrap; /* Empêche le texte d'aller à la ligne */
+  position: relative;
+  left: -200px;
 }
 
-body {
-    /* Image de fond */
-    background-image: url("/static/images/ap.jpg");
 
-    /* L’image couvre tout l’écran */
-    background-size: cover;
+/* --- NOUVEAU : SECTION PILIERS (PARTIE BASSE GRISE) --- */
+.pillars-section {
+  background-color: #f4f4f4; /* Fond gris demandé */
+  padding: 60px 20px; /* Espace intérieur */
+  
+  /* Aligne les 3 cartes */
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* Les cartes auront la même hauteur */
+  flex-wrap: wrap; /* Permet aux cartes de passer à la ligne sur mobile */
+  gap: 30px; /* Espace entre les cartes */
+  
+  /* Le texte redevient sombre ici */
+  color: #333;
+}
 
-    /* L’image reste fixe quand on scrolle */
-    background-attachment: fixed;
+/* NOUVEAU : Style pour chaque carte-pilier */
+.pillar-card {
+  background-color: #ffffff; /* Fond blanc */
+  border-radius: 12px; /* Bords arrondis demandés */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Ombre demandée */
+  padding: 25px;
+  flex-basis: 300px; /* Largeur de base de chaque carte */
+  flex-grow: 1; /* Permet aux cartes de grandir si l'espace le permet */
+  max-width: 350px; /* Largeur max */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    /* Centrer l’image */
-    background-position: center;
+.pillar-card:hover {
+  transform: translateY(-5px); /* Effet au survol */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
 
-    /* Supprimer marges et ajuster la mise en page */
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    color: white; /* texte lisible sur fond sombre */
-    }
+.pillar-card h3 {
+  color: #0056b3; /* Titre en bleu */
+  margin-top: 0;
+  font-size: 1.3rem;
+}
 
-    /* Optionnel : ajoute un léger voile pour lisibilité */
-    body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* voile noir semi-transparent */
-    z-index: -1;
-    }
-
+.pillar-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
 
     .poubelle {
     width: 150px;
@@ -59,20 +214,3 @@ body {
     from { transform: translateY(0); }
     to { transform: translateY(-15px); } /* monte légèrement */
     }
-
-    .mon-bouton {
-            display: inline-block;
-            padding: 10px 15px;
-            font-size: 16px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none; /* Enlève le soulignement du lien */
-            color: white; /* Couleur du texte */
-            background-color: #007BFF; /* Couleur de fond bleue */
-            border: none;
-            border-radius: 5px; /* Coins arrondis */
-        }
-        
-        .mon-bouton:hover {
-            background-color: #0056b3; /* Couleur au survol */
-        }
