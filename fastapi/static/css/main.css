@@ -1,0 +1,78 @@
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+body {
+    /* Image de fond */
+    background-image: url("/static/images/ap.jpg");
+
+    /* L’image couvre tout l’écran */
+    background-size: cover;
+
+    /* L’image reste fixe quand on scrolle */
+    background-attachment: fixed;
+
+    /* Centrer l’image */
+    background-position: center;
+
+    /* Supprimer marges et ajuster la mise en page */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: white; /* texte lisible sur fond sombre */
+    }
+
+    /* Optionnel : ajoute un léger voile pour lisibilité */
+    body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* voile noir semi-transparent */
+    z-index: -1;
+    }
+
+
+    .poubelle {
+    width: 150px;
+    position: absolute;
+    bottom: 150px;
+    left: 200px;
+
+    /* Animation */
+    animation: bouge 2s infinite alternate ease-in-out;
+    }
+
+    /* Définition de l’animation */
+    @keyframes bouge {
+    from { transform: translateY(0); }
+    to { transform: translateY(-15px); } /* monte légèrement */
+    }
+
+    .mon-bouton {
+            display: inline-block;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none; /* Enlève le soulignement du lien */
+            color: white; /* Couleur du texte */
+            background-color: #007BFF; /* Couleur de fond bleue */
+            border: none;
+            border-radius: 5px; /* Coins arrondis */
+        }
+        
+        .mon-bouton:hover {
+            background-color: #0056b3; /* Couleur au survol */
+        }
